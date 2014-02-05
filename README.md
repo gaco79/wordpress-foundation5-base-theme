@@ -17,7 +17,7 @@ You'll need to have the following items installed before continuing.
 ## Quickstart
 
 ```bash
-git clone git@github.com:zurb/foundation-libsass-template.git
+git clone git@github.com:gaco79/wordpress-foundation5-base-theme.git
 npm install && bower install
 ```
 
