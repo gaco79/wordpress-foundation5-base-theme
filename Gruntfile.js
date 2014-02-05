@@ -24,7 +24,7 @@ module.exports = function(grunt) {
           // outputStyle: 'compressed' 
 
           // Will have to do for now...
-          outputStyle: 'compressed'
+          outputStyle: 'compact'
         },
         files: {
           'style.css': 'src/scss/style.scss'
@@ -58,8 +58,12 @@ module.exports = function(grunt) {
       grunt: { files: ['Gruntfile.js'] },
 
       sass: {
-        files: 'scss/**/*.scss',
+        files: 'src/scss/**/*.scss',
         tasks: ['sass']
+      },
+      javascripts: {
+        files: 'src/javascripts/**/*.js',
+        tasks: ['uglify']
       }
     }
   });
