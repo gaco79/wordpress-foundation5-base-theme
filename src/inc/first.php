@@ -56,14 +56,11 @@ if (!function_exists('gc_basetheme_setup')):
 
     /**
      * Custom image sizes
+     * 
+     * Define using:
+     *       add_image_size('image-size-name', width, height);
+     * e.g.  add_image_size('gc-archive', 600, 9999);
      */
-    //add_image_size('gc-archive', 600, 9999);
-
-    /**
-     * Add support for the Aside and Gallery Post Formats
-     */
-    //add_theme_support('post-formats', array('aside', 'image', 'gallery'));
-
     /**
      * Disable admin bar - it cocks up positionings of foundation tooltips
      */

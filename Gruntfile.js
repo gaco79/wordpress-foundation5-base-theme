@@ -11,9 +11,16 @@ module.exports = function(grunt) {
           outputStyle: 'compressed'
         },
         files: {
-          'css/app.css': 'scss/app.scss'
+          'style.css': 'src/scss/style.scss'
         }        
       }
+    },
+
+    concat: {
+      dist: {
+        src: ['src/functions/first.php', 'src/functions/*.php'],
+        dest: 'functions.php',
+      },
     },
 
     watch: {
@@ -28,7 +35,8 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
-  grunt.registerTask('build', ['sass']);
+  grunt.registerTask('build', ['sass', 'concat']);
   grunt.registerTask('default', ['build','watch']);
 }
