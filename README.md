@@ -40,10 +40,21 @@ And you're set!
    * See here for more information: http://codex.wordpress.org/Function_Reference/get_template_part
  * SCSS
    * `src/scss/_settings.scss`: Foundation configuration settings go in here
-   * `src/scss/style.scss`: Application styles go here
+   * `src/scss/style.scss`: Your theme styles go here
  * JAVASCRIPT
    * `src/javascript/`: Is the place to drop your Javascripts. They'll be 'uglified' and the minimised versions dropped
          into the /js/ directory for you to reference in your theme.
+
+## Theme Styling
+
+You must style Wordpress sticky posts using the .wordpress-sticky CSS class. This is to avoid conflict between 
+the .sticky class which Wordpress uses to mark sticky posts, and Foundation 5 uses to make things stick to the 
+top of the page instead of scrolling off.
+
+To avoid conflicts between Wordpress' admin bar and Foundation's tooltips, the Wordpress admin bar has
+been disabled in this theme. It's easy enough to shift the Foundation Top Bar down 32px when the Wordpress admin bar is
+showing, but then all tooltips appear 32px below where they should do too... If anyone has thoughts on fixing this, I'd
+be happy to hear!
 
 ## Distributing your theme
 
