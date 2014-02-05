@@ -1,0 +1,36 @@
+/*!
+Theme Name: Foundation 5 Base Theme
+Theme URI: http://garethcooper.com
+Author: Gareth Cooper
+Author URI: http://garethcooper.com/
+Description: A base theme using Foundation 5
+Version: 0.0.1
+License: GNU General Public License
+License URI: license.txt
+Tags: 
+
+This theme, like WordPress, is licensed under the GPL.
+*/
+
+
+@import "app";
+
+body {
+  background-color: $topbar-bg-color;
+}
+
+#content {
+  background-color: $body-bg;
+  padding: 2rem 0;
+}
+
+#footer {
+  color: $topbar-dropdown-label-color;
+  background-color: $topbar-bg-color;
+  padding: 2rem 0;
+  
+  #theme-design {
+    font-size: $small-font-size;
+    text-align: right;
+  }
+}
