@@ -30,6 +30,7 @@ And you're set!
 ## Upgrades
 
 `bower update`: Should pull future Foundation 5 upgrades
+
 `npm update`: Will keep your grunt tasks up to date. Especially important for libsass / node-sass which is in early
  days and still has some bugs.
 
@@ -48,8 +49,8 @@ And you're set!
 ## Theme Styling
 
 You must style Wordpress sticky posts using the .wordpress-sticky CSS class. This is to avoid conflict between 
-the .sticky class which Wordpress uses to mark sticky posts, and Foundation 5 uses to make things stick to the 
-top of the page instead of scrolling off.
+the .sticky class which by default Wordpress uses to mark sticky posts, and Foundation 5 also uses but to make things 
+stick to the top of the page instead of scrolling off.
 
 To avoid conflicts between Wordpress' admin bar and Foundation's tooltips, the Wordpress admin bar has
 been disabled in this theme. It's easy enough to shift the Foundation Top Bar down 32px when the Wordpress admin bar is
@@ -61,3 +62,7 @@ be happy to hear!
 I've tried to keep as many files as possible away from the main directory. For distribution, once you've built your
  theme using grunt, the whole of the `/src/`, `/bower_components/` and `node_modules` directories can be deleted,
  along with `Gruntfile.js`, `bower.json`, `config.rb` and `package.json`.
+
+## More Information
+
+There'll be a full write-up of the theme at [my website](http://garethcooper.com/?p=1679) some time soon.

@@ -1,10 +1,10 @@
 {
   "name": "wordpress-foundation5-theme",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "title": "Wordpress Foundation 5 Base Theme",
-  "themeUrl": "http://",
+  "themeUrl": "http://garethcooper.com/?p=1679",
   "author": "Gareth Cooper",
-  "licence": "Theme licence",
+  "licence": "GPL v3. Please see license.txt",
   "devDependencies": {
     "node-sass": "~0.7.0",
     "grunt": "~0.4.1",
