@@ -1,10 +1,16 @@
 {
-  "name": "foundation-libsass-template",
+  "name": "wordpress-foundation5-theme",
   "version": "0.0.1",
+  "title": "Wordpress Foundation 5 Base Theme",
+  "themeUrl": "http://",
+  "author": "Gareth Cooper",
+  "licence": "Theme licence",
   "devDependencies": {
     "node-sass": "~0.7.0",
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-sass": "~0.8.0"
+    "grunt-sass": "~0.8.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.3.2"
   }
 }

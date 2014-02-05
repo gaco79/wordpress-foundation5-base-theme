@@ -20,7 +20,6 @@
  * For more information on hooks, actions, and filters, see http://codex.wordpress.org/Plugin_API.
  *
  */
-include_once 'inc/gc_menu_walker.php';
 
 if (!function_exists('gc_basetheme_setup')):
 
@@ -48,6 +47,11 @@ if (!function_exists('gc_basetheme_setup')):
 
     //Theme support for thumbnails (posts & pages only)
     add_theme_support('post-thumbnails', array('post', 'page'));
+    
+    /**
+     * Disable admin bar - it cocks up positionings of foundation tooltips & topbar menu
+     */
+    show_admin_bar(false);
 
     /**
      * Add support for Post Formats
@@ -61,10 +65,7 @@ if (!function_exists('gc_basetheme_setup')):
      *       add_image_size('image-size-name', width, height);
      * e.g.  add_image_size('gc-archive', 600, 9999);
      */
-    /**
-     * Disable admin bar - it cocks up positionings of foundation tooltips
-     */
-    //show_admin_bar(false);
+    
   }
 
 endif; // gc_basetheme_setup
@@ -109,3 +110,48 @@ if (!function_exists('gc_basetheme_enqueue_scripts')) :
 endif;
 
 add_action('wp_enqueue_scripts', 'gc_basetheme_enqueue_scripts');
+
+
+/**
+ * Add Foundation menu markup to wordpress generated menus
+ * 
+ * Add Dropdown class to Wordpress submenus
+ */
+class GC_walker_nav_menu extends Walker_Nav_Menu {
+
+  // add classes to ul sub-menus
+  function start_lvl(&$output, $depth) {
+    // depth dependent classes
+    $indent = ( $depth > 0 ? str_repeat("\t", $depth) : '' ); // code indent
+    // build html
+    $output .= "\n" . $indent . '<ul class="dropdown">' . "\n";
+  }
+
+}
+
+/**
+ * Add Foundation menu markup to wordpress generated menus
+ * 
+ * Add has-dropdown class to parent menu items
+ */
+if (!function_exists('GC_menu_set_dropdown')) :
+
+  function GC_menu_set_dropdown($sorted_menu_items, $args) {
+    $last_top = 0;
+    foreach ($sorted_menu_items as $key => $obj) {
+      // it is a top lv item?
+      if (0 == $obj->menu_item_parent) {
+        // set the key of the parent
+        $last_top = $key;
+      } else {
+        $sorted_menu_items[$last_top]->classes['dropdown'] = 'has-dropdown';
+      }
+    }
+
+    //print_r($sorted_menu_items);
+    return $sorted_menu_items;
+  }
+
+endif;
+
+add_filter('wp_nav_menu_objects', 'GC_menu_set_dropdown', 10, 2);

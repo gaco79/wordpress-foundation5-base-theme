@@ -44,7 +44,7 @@
       ?>
     </title>
 
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/bower_components/modernizr/modernizr.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/modernizr.min.js"></script>
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="stylesheet" type="text/css" media="all"
           href="<?php bloginfo('stylesheet_url'); ?>" />

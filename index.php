@@ -1,6 +1,16 @@
 <?php
 /**
  * Foundation 5 Base Theme for Wordpress
+ * 
+ * In the interests of keeping this theme as simple as possible, I have only included an index.php file.
+ * Wordpress supports many template files for different layouts such as categories, tags, single posts, 
+ * single pages, etc, etc.
+ * 
+ * For further information see
+ *   http://codex.wordpress.org/Stepping_Into_Templates
+ *   https://yoast.com/wordpress-theme-anatomy/
+ * 
+ * @package WordpressFoundation5BaseTheme
  */
 get_header();
 ?>
@@ -15,7 +25,7 @@ get_header();
 
         <div class="small-12">
           <?php
-          get_template_part('layouts/archive/item', get_post_format());
+          get_template_part('template-parts/item', get_post_format());
           ?>
         </div>
 
