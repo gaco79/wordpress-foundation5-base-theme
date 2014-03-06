@@ -63,6 +63,14 @@ I've tried to keep as many files as possible away from the main directory. For d
  theme using grunt, the whole of the `/src/`, `/bower_components/` and `node_modules` directories can be deleted,
  along with `Gruntfile.js`, `bower.json`, `config.rb` and `package.json`.
 
+## What's New
+
+ * v0.2
+   * Responsive images - Uses [Foundation's interchange](http://foundation.zurb.com/docs/components/interchange.html)
+   * Support for standard Wordpress alignment and caption classes
+ * v0.1
+   * First working theme
+
 ## More Information
 
-There'll be a full write-up of the theme at [my website](http://garethcooper.com/?p=1679) some time soon.
+There's a full write-up of the theme at [my website](http://garethcooper.com/?p=1679).
