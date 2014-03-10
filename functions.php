@@ -21,6 +21,8 @@
  *
  */
 
+require_once(get_template_directory() . '/inc/responsiveImageShortcode.php');
+
 if (!function_exists('gc_basetheme_setup')):
 
   /**
@@ -47,7 +49,7 @@ if (!function_exists('gc_basetheme_setup')):
 
     //Theme support for thumbnails (posts & pages only)
     add_theme_support('post-thumbnails', array('post', 'page'));
-    
+
     /**
      * Disable admin bar - it cocks up positionings of foundation tooltips & topbar menu
      */
@@ -61,11 +63,17 @@ if (!function_exists('gc_basetheme_setup')):
     /**
      * Custom image sizes
      * 
-     * Define using:
-     *       add_image_size('image-size-name', width, height);
-     * e.g.  add_image_size('gc-archive', 600, 9999);
+     * These should be named to match Foundations media queries as they will be automatically used in
+     *  Interchange for responsive images
+     * 
+     * @see http://foundation.zurb.com/docs/components/interchange.html
+     * 
      */
-    
+    add_image_size('small', 640, 9999);
+    add_image_size('medium', 1020, 9999);
+    add_image_size('large', 1440, 9999);
+    add_image_size('xlarge', 1600, 9999);
+    //add_image_size('xxlarge', 1600, 9999);
   }
 
 endif; // gc_basetheme_setup
@@ -103,14 +111,13 @@ if (!function_exists('gc_basetheme_enqueue_scripts')) :
   function gc_basetheme_enqueue_scripts() {
     //Foundation Bootstrap
     wp_enqueue_script(
-            'foundation', get_stylesheet_directory_uri() . '/bower_components/foundation/js/foundation.min.js', array('jquery'), false, true
+            'foundation', get_stylesheet_directory_uri() . '/js/foundation.min.js', array('jquery'), false, true
     );
   }
 
 endif;
 
 add_action('wp_enqueue_scripts', 'gc_basetheme_enqueue_scripts');
-
 
 /**
  * Add Foundation menu markup to wordpress generated menus
@@ -129,13 +136,13 @@ class GC_walker_nav_menu extends Walker_Nav_Menu {
 
 }
 
-/**
- * Add Foundation menu markup to wordpress generated menus
- * 
- * Add has-dropdown class to parent menu items
- */
 if (!function_exists('GC_menu_set_dropdown')) :
 
+  /**
+   * Add Foundation menu markup to wordpress generated menus
+   * 
+   * Add has-dropdown class to parent menu items
+   */
   function GC_menu_set_dropdown($sorted_menu_items, $args) {
     $last_top = 0;
     foreach ($sorted_menu_items as $key => $obj) {
@@ -153,5 +160,35 @@ if (!function_exists('GC_menu_set_dropdown')) :
   }
 
 endif;
-
 add_filter('wp_nav_menu_objects', 'GC_menu_set_dropdown', 10, 2);
+
+
+if (!function_exists('gc_get_image_tag')) :
+
+  /*
+   * Manipulate the <img /> tag inserted by the html editor
+   * Should output images compatible with foundation interchange
+   * @see http://foundation.zurb.com/docs/components/interchange.html
+   */
+
+  function gc_get_image_tag($html, $id, $title) {
+    $imageSizes = wp_get_attachment_metadata($id);
+
+    //Output our image sizes using interchange for images format
+    $dataInterchange = '';
+    foreach ($imageSizes['sizes'] as $size => $info) {
+      $dataInterchange .= '[';
+      $dataInterchange .= wp_get_attachment_image_src($id, $size)[0] . ', ';
+      $dataInterchange .= '(' . $size . ')';
+      $dataInterchange .= '],';
+    }
+    $dataInterchange = substr($dataInterchange, 0, -1);
+
+    //Build the <img /> tag
+    $html = sprintf('<img alt="%2$s" data-interchange="%1$s" /><noscript><img src="%3$s"></noscript>', $dataInterchange, $title, wp_get_attachment_image_src($id, 'full')[0]);
+
+    return $html;
+  }
+
+endif;
+add_filter('get_image_tag', 'gc_get_image_tag', 10, 3);

@@ -53,28 +53,23 @@ module.exports = function(grunt) {
         },
       }
     },
-
-    responsive_images: {
-      options: {
-        sizes: [{
-          name: "small",
-          width: 480,
-          quality: 85
-        },{
-          name: "large",
-          width: 1600,
-          quality: 92
-        }],
-       separator: '.',
-      },
-      images: {
+    
+    copy: {
+      main: {
+        src: 'bower_components/foundation/js/foundation.min.js',
+        dest: 'js/foundation.min.js',
+      }
+    },
+    
+    imagemin: {
+     dynamic: {                         
         files: [{
           expand: true,
           src: ['**.{jpg,gif,png}'],
           cwd: 'src/img/',
           dest: 'img/'
         }]
-      },
+      }
     },
 
     watch: {
@@ -85,12 +80,12 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       javascripts: {
-        files: 'src/javascripts/**/*.js',
+        files: 'src/javascripts/*.js',
         tasks: ['uglify']
       },
       images: {
         files: 'src/img/**/*',
-        tasks: ['responsive_images']
+        tasks: ['imagemin']
       }
     }
   });
@@ -98,8 +93,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-responsive-images');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('build', ['sass', 'uglify', 'responsive_images']);
+  grunt.registerTask('build', ['sass', 'uglify', 'copy', 'imagemin']);
   grunt.registerTask('default', ['build','watch']);
 }
