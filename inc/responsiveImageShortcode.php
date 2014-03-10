@@ -24,11 +24,18 @@ if (!function_exists('interchange_shortcode')) :
       $dataInterchange .= $attachment_info[0] . ', ';
       $dataInterchange .= '(' . $size . ')';
       $dataInterchange .= '],';
+
+      //edge case where original image is 1600px wide, so xlarge size not generated
+      if ($size == 'xlarge') {
+        $xLargeIncluded = true;
+      }
     }
 
-    //Full size image
-    $upload_dir = wp_upload_dir();
-    $dataInterchange .= '[' . $upload_dir['baseurl'] . '/' . $imageSizes['file'] . ', (xlarge)]';
+    //Full size image, only included when xlarge size not generated
+    if (!$xLargeIncluded) {
+      $upload_dir = wp_upload_dir();
+      $dataInterchange .= '[' . $upload_dir['baseurl'] . '/' . $imageSizes['file'] . ', (xlarge)]';
+    }
 
     //Build the interchange <img /> tag
     $html = sprintf('<img alt="%2$s" data-interchange="%1$s" width="%4$d" height="%5$d" class="%6$s" /><noscript><img src="%3$s"></noscript>', $dataInterchange, get_the_title($atts['id']), $imageSizes['file'], $imageSizes['width'], $imageSizes['height'], $atts['class']);
@@ -69,22 +76,14 @@ endif;
 add_filter('get_image_tag', 'gc_get_image_tag', 10, 3);
 
 /**
- * Adds the responsive image plugin to the tinyMCE visual editor
- * 
- * Replaces [responsiveimage] shortcodes with placeholder image in visual editor
- */
-function add_responsive_image_plugin() {
-  if (current_user_can('edit_posts') && current_user_can('edit_pages')) {
-    add_filter('mce_external_plugins', 'add_responsive_image_plugin_js');
-  }
-}
-
-add_action('init', 'add_responsive_image_plugin');
-
-/**
  * Javascript for the TinyMCE plugin
  */
-function add_responsive_image_plugin_js($plugin_array) {
-  $plugin_array['responsiveImagePlugin'] = get_bloginfo('template_url') . '/js/responsiveImagePlugin.min.js';
+function gc_add_responsive_image_plugin_js($plugin_array) {
+  if (current_user_can('edit_posts') && current_user_can('edit_pages')) {
+    $plugin_array['responsiveImagePlugin'] = get_bloginfo('template_url') . '/js/responsiveImagePlugin.min.js';
+  }
+
   return $plugin_array;
 }
+
+add_filter('mce_external_plugins', 'gc_add_responsive_image_plugin_js');

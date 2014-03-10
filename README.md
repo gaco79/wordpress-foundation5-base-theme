@@ -60,13 +60,13 @@ be happy to hear!
 ## Distributing your theme
 
 I've tried to keep as many files as possible away from the main directory. For distribution, once you've built your
- theme using grunt, the whole of the `/src/`, `/bower_components/` and `node_modules` directories can be deleted,
+ theme using grunt, the whole of the `/src/`, `/bower_components/` and `/node_modules/` directories can be deleted,
  along with `Gruntfile.js`, `bower.json`, `config.rb` and `package.json`.
 
 ## What's New
 
  * v0.2
-   * Responsive images - Uses [Foundation's interchange](http://foundation.zurb.com/docs/components/interchange.html)
+   * Responsive images - Uses [Foundation Interchange](http://foundation.zurb.com/docs/components/interchange.html)
    * Support for standard Wordpress alignment and caption classes
  * v0.1
    * First working theme
