@@ -18,7 +18,8 @@ You'll need to have the following items installed before continuing.
 
 ```bash
 git clone git@github.com:gaco79/wordpress-foundation5-base-theme.git
-npm install && bower install
+npm install
+bower install
 ```
 
 While you're working on your project, run:

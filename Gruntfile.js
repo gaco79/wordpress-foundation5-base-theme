@@ -27,7 +27,8 @@ module.exports = function(grunt) {
           outputStyle: 'compact'
         },
         files: {
-          'style.css': 'src/scss/style.scss'
+          'style.css': 'src/scss/style.scss',
+          'editor-style.css': 'src/scss/editor-style.scss'
         }        
       }
     },
