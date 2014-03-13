@@ -6,6 +6,15 @@ I've tried to keep the file structure as simple as possible, so as not to over-c
 The project makes use of Bower, Grunt and libsass. It should compile very quickly and be easy to maintain with
 upgrades in future.
 
+## Important Note
+
+There are major upcoming changes in Wordpress 3.9.  TinyMCE is being upgraded to version 4, which will affect
+how all our editor plugins work. As such the `dev` branch is now being coded to work with Wordpress version 3.9. 
+This is not currently out of beta testing, and so the dev branch will not work on a production site.
+
+**Important: Code from the `dev` branch will not work on a production Wordpress site until Wordpress 3.9 is officially
+released in April 2014.**
+
 ## Requirements
 
 You'll need to have the following items installed before continuing.
