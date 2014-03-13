@@ -22,6 +22,7 @@
  */
 
 require_once(get_template_directory() . '/inc/responsiveImageShortcode.php');
+require_once(get_template_directory() . '/inc/tabs.php');
 
 if (!function_exists('gc_basetheme_setup')):
 
@@ -54,6 +55,11 @@ if (!function_exists('gc_basetheme_setup')):
      * Disable admin bar - it cocks up positionings of foundation tooltips & topbar menu
      */
     show_admin_bar(false);
+    
+    /**
+     * Editor styles
+     */
+    add_editor_style();
 
     /**
      * Add support for Post Formats
