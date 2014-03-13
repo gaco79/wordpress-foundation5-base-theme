@@ -1193,6 +1193,32 @@ label.error {
     right: 91.66667%;
     left: auto; } }
 
+.side-nav {
+  display: block;
+  margin: 0;
+  padding: 0.875rem 0;
+  list-style-type: none;
+  list-style-position: inside;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
+  .side-nav li {
+    margin: 0 0 0.4375rem 0;
+    font-size: 0.875rem; }
+    .side-nav li a:not(.button) {
+      display: block;
+      color: #008cba; }
+      .side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
+        color: #1ccaff; }
+    .side-nav li.active > a:first-child:not(.button) {
+      color: #1ccaff;
+      font-weight: normal;
+      font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
+    .side-nav li.divider {
+      border-top: 1px solid;
+      height: 0;
+      padding: 0;
+      list-style: none;
+      border-top-color: white; }
+
 table {
   background: white;
   margin-bottom: 1.25rem;
@@ -1815,3 +1841,6 @@ blockquote, blockquote p {
 
 img {
   max-width: 100%; }
+
+.columns {
+  border: 1px dotted #e7e7e7; }
