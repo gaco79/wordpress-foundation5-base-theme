@@ -185,7 +185,8 @@ if (!function_exists('gc_get_image_tag')) :
         $dataInterchange = substr($dataInterchange, 0, -1);
 
         //Build the <img /> tag
-        $html = sprintf('<img alt="%2$s" data-interchange="%1$s" /><noscript><img src="%3$s"></noscript>', $dataInterchange, $title, wp_get_attachment_image_src($id, 'full')[0]);
+        $full_size_image_source = wp_get_attachment_image_src($id, 'full');
+        $html = sprintf('<img alt="%2$s" data-interchange="%1$s" /><noscript><img src="%3$s"></noscript>', $dataInterchange, $title, $full_size_image_source[0]);
 
         return $html;
     }
