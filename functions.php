@@ -20,7 +20,7 @@
  * For more information on hooks, actions, and filters, see http://codex.wordpress.org/Plugin_API.
  *
  */
-require_once(get_template_directory() . '/inc/responsiveImageShortcode.php');
+require_once(get_template_directory() . '/inc/responsiveImages.php');
 require_once(get_template_directory() . '/inc/tabs.php');
 
 if (!function_exists('gc_basetheme_setup')):
@@ -50,15 +50,15 @@ if (!function_exists('gc_basetheme_setup')):
         //Theme support for thumbnails (posts & pages only)
         add_theme_support('post-thumbnails', array('post', 'page'));
 
-    /**
-     * Disable admin bar - it cocks up positionings of foundation tooltips & topbar menu
-     */
-    show_admin_bar(false);
-    
-    /**
-     * Editor styles
-     */
-    add_editor_style();
+        /**
+         * Disable admin bar - it cocks up positionings of foundation tooltips & topbar menu
+         */
+        show_admin_bar(false);
+
+        /**
+         * Editor styles
+         */
+        add_editor_style();
 
         /**
          * Add support for Post Formats
@@ -111,9 +111,9 @@ add_filter('post_class', 'remove_sticky_class');
  *
  * @see http://foundation.zurb.com/
  */
-if (!function_exists('gc_basetheme_enqueue_scripts')) :
+if (!function_exists('wf5bt_basetheme_enqueue_scripts')) :
 
-    function gc_basetheme_enqueue_scripts() {
+    function wf5bt_basetheme_enqueue_scripts() {
         //Foundation Bootstrap
         wp_enqueue_script(
                 'foundation', get_stylesheet_directory_uri() . '/js/foundation.min.js', array('jquery'), false, true
@@ -122,7 +122,7 @@ if (!function_exists('gc_basetheme_enqueue_scripts')) :
 
 endif;
 
-add_action('wp_enqueue_scripts', 'gc_basetheme_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'wf5bt_basetheme_enqueue_scripts');
 
 /**
  * Add Foundation menu markup to wordpress generated menus
@@ -141,14 +141,14 @@ class GC_walker_nav_menu extends Walker_Nav_Menu {
 
 }
 
-if (!function_exists('GC_menu_set_dropdown')) :
+if (!function_exists('wf5bt_menu_set_dropdown')) :
 
     /**
      * Add Foundation menu markup to wordpress generated menus
      * 
      * Add has-dropdown class to parent menu items
      */
-    function GC_menu_set_dropdown($sorted_menu_items, $args) {
+    function wf5bt_menu_set_dropdown($sorted_menu_items, $args) {
         $last_top = 0;
         foreach ($sorted_menu_items as $key => $obj) {
             // it is a top lv item?
@@ -165,37 +165,17 @@ if (!function_exists('GC_menu_set_dropdown')) :
     }
 
 endif;
-add_filter('wp_nav_menu_objects', 'GC_menu_set_dropdown', 10, 2);
+add_filter('wp_nav_menu_objects', 'wf5bt_menu_set_dropdown', 10, 2);
 
-
-if (!function_exists('gc_get_image_tag')) :
-
-    /*
-     * Manipulate the <img /> tag inserted by the html editor
-     * Should output images compatible with foundation interchange
-     * @see http://foundation.zurb.com/docs/components/interchange.html
-     */
-
-    function gc_get_image_tag($html, $id, $title) {
-        $imageSizes = wp_get_attachment_metadata($id);
-
-        //Output our image sizes using interchange for images format
-        $dataInterchange = '';
-        foreach ($imageSizes['sizes'] as $size => $info) {
-            $dataInterchange .= '[';
-            $attachment_image_src = wp_get_attachment_image_src($id, $size);
-            $dataInterchange .= $attachment_image_src[0] . ', ';
-            $dataInterchange .= '(' . $size . ')';
-            $dataInterchange .= '],';
-        }
-        $dataInterchange = substr($dataInterchange, 0, -1);
-
-        //Build the <img /> tag
-        $full_size_image_source = wp_get_attachment_image_src($id, 'full');
-        $html = sprintf('<img alt="%2$s" data-interchange="%1$s" /><noscript><img src="%3$s"></noscript>', $dataInterchange, $title, $full_size_image_source[0]);
-
-        return $html;
+/**
+ * Add the wf5bt TinyMCE plugins
+ */
+function wf5bt_add_responsive_image_plugin_js($plugin_array) {
+    if (current_user_can('edit_posts') && current_user_can('edit_pages')) {
+        $plugin_array['responsiveImagePlugin'] = get_bloginfo('template_url') . '/js/responsiveImagePlugin.min.js';
     }
 
-endif;
-add_filter('get_image_tag', 'gc_get_image_tag', 10, 3);
+    return $plugin_array;
+}
+
+add_filter('mce_external_plugins', 'wf5bt_add_responsive_image_plugin_js');
