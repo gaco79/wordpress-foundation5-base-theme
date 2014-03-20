@@ -6,9 +6,9 @@
  * Uses Foundation Interchange
  * @see http://foundation.zurb.com/docs/components/interchange.html
  */
-if (!function_exists('interchange_shortcode')) :
+if (!function_exists('wf5btp_interchange_shortcode')) :
 
-    function interchange_shortcode($atts) {
+    function wf5btp_interchange_shortcode($atts) {
         extract(shortcode_atts(array(
             'id' => 1,
             'class' => ''
@@ -56,7 +56,7 @@ if (!function_exists('interchange_shortcode')) :
     }
 
 endif;
-add_shortcode('responsiveimage', 'interchange_shortcode');
+add_shortcode('responsiveimage', 'wf5btp_interchange_shortcode');
 
 /*
  * Manipulate the <img /> tag inserted by the html editor
