@@ -5,13 +5,13 @@
  * 
  * @see http://foundation.zurb.com/docs/components/tabs.html
  */
-if (!function_exists('wfbt_tabs')) :
+if (!function_exists('wf5bt_tabs')) :
 
-    function wfbt_tabs($atts, $content = null) {
+    function wf5bt_tabs($atts, $content = null) {
         extract(shortcode_atts(array(
             'direction' => 'horizontal'
                         ), $atts, 'tabs-atts'));
-        
+
         // render shortcodes contained within the [tabs] shortcode
         // specifically, we want the [tab] shortcodes to have rendered to html
         $content = do_shortcode($content);
@@ -46,27 +46,27 @@ if (!function_exists('wfbt_tabs')) :
     }
 
 endif;
-add_shortcode('tabs', 'wfbt_tabs');
+add_shortcode('tabs', 'wf5bt_tabs');
 
 
-if (!function_exists('wfbt_tab')) :
+if (!function_exists('wf5bt_tab')) :
 
     /**
      * A single tab
      */
-    function wfbt_tab($atts, $content = null) {
+    function wf5bt_tab($atts, $content = null) {
         extract(shortcode_atts(array(
             'title' => 'Untitled Tab. Please set title attribute.',
             'active' => false
                         ), $atts, 'tab-atts'));
-        
+
         //TODO generate link id if specifically set, or regenerate if illegal, eg starts with number
         $id = preg_replace('/[^A-Za-z0-9]/', '', $title);
-        
+
         $html = sprintf('<div class="content%2$s" id="%3$s" data-title="%4$s">%1$s</div>', $content, ($active) ? ' active' : '', $id, htmlspecialchars($title));
 
         return $html;
     }
 
 endif;
-add_shortcode('tab', 'wfbt_tab');
+add_shortcode('tab', 'wf5bt_tab');

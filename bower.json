@@ -1,5 +1,5 @@
 {
-  "name": "foundation-libsass-template",
+  "name": "wordpress-foundation5-base-theme",
   "dependencies": {
     "foundation": "zurb/bower-foundation"
   }
