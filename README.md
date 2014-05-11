@@ -71,7 +71,8 @@ I've tried to keep as many files as possible away from the main directory. For d
  along with `Gruntfile.js`, `bower.json`, `config.rb` and `package.json`.
 
 ## What's New
-
+ * v0.3
+   * Changes due to WordPress 3.9 upgrade of TinyMCE editor.
  * v0.2
    * Responsive images - Uses [Foundation Interchange](http://foundation.zurb.com/docs/components/interchange.html)
    * Support for standard Wordpress alignment and caption classes
