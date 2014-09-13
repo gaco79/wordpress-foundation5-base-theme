@@ -6,13 +6,17 @@
   "author": "Gareth Cooper",
   "licence": "GPL v3. Please see license.txt",
   "devDependencies": {
-    "node-sass": "~0.8.0",
     "grunt": "~0.4.1",
-    "grunt-contrib-watch": "~0.6.0",
-    "grunt-sass": "~0.12.0",
-    "grunt-contrib-concat": "~0.4.0",
-    "grunt-contrib-imagemin": "~0.7.0",
+    "grunt-contrib-concat": "~0.5.0",
     "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-uglify": "~0.4.0"
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-watch": "~0.6.0",
+    "grunt-sass": "~0.14.0",
+    "load-grunt-config": "^0.13.1"
+  },
+  "repository" :
+  { 
+    "type" : "git", 
+    "url" : "https://github.com/gaco79/wordpress-foundation5-base-theme"
   }
 }

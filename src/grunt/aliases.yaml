@@ -1,0 +1,7 @@
+build:
+  - 'sass'
+  - 'uglify'
+  - 'copy'
+default:
+  - 'build'
+  - 'watch'
