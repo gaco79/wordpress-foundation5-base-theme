@@ -63,6 +63,7 @@ I've tried to keep as many files as possible away from the main directory. For d
 ## What's New
  * v0.3.1
    * Updated and rebuilt with newer versions of Foundation.
+   * Added support for load-grunt-config to keep grunt config files readable.
  * v0.3.0
    * Changes due to WordPress 3.9 upgrade of TinyMCE editor.
  * v0.2
