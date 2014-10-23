@@ -4,10 +4,10 @@ module.exports = {
 	},
 	sass : {
 		files : 'src/scss/**/*.scss',
-		tasks : [ 'sass' ]
+		tasks : [ 'sass', 'notify:sass' ]
 	},
 	javascripts : {
 		files : 'src/javascripts/*.js',
-		tasks : [ 'uglify' ]
+		tasks : [ 'uglify', 'notify:concat']
 	}
-}
+};

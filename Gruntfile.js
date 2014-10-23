@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 			grunt,
 			{
 				configPath : path.join(process.cwd(), 'src/grunt'),
-				data : { // data passed into config. Can use with <%= test %>
+				data : { // data passed into config
 					pkg : grunt.file.readJSON('package.json'),
 					project : {
 						banner : '/*!\n' + ' * Theme Name: <%= pkg.title %>\n'

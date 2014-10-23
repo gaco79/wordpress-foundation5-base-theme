@@ -5,14 +5,19 @@
   "themeUrl": "http://garethcooper.com/?p=1679",
   "author": "Gareth Cooper",
   "licence": "GPL v3. Please see license.txt",
+  "readmeFilename": "README.md",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "~0.5.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-copy": "~0.7.0",
+    "grunt-contrib-uglify": "~0.6.0",
     "grunt-contrib-watch": "~0.6.0",
-    "grunt-sass": "~0.14.0",
-    "load-grunt-config": "^0.13.1"
+    "grunt-sass": "~0.16.0",
+    "load-grunt-config": "~0.14.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-newer": "~0.8.0",
+    "grunt-notify": "~0.3.1",
+    "time-grunt": "~1.0.0"
   },
   "repository" :
   { 

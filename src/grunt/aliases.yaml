@@ -1,7 +1,9 @@
 build:
-  - 'sass'
-  - 'uglify'
-  - 'copy'
+  - 'newer:sass'
+  - 'notify:sass'
+  - 'newer:uglify'
+  - 'newer:copy'
+  - 'notify:concat'
 default:
   - 'build'
   - 'watch'
