@@ -4,13 +4,10 @@ module.exports = {
 	},
 	dist : {
 		options : {
-			// Would be ideal, but currently strips "loud" comments and
-			// therefore the information
-			// required by the Wordpress Appearance admin page is misssing.
 			outputStyle: 'compressed'
 
-			// Will have to do for now...
-			//outputStyle : 'compact'
+			// May be useful for debugging
+			//outputStyle : 'nested'
 		},
 		files : {
 			'style.css' : 'src/scss/style.scss',
