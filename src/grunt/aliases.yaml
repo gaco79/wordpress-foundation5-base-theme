@@ -1,5 +1,6 @@
 build:
   - 'newer:sass'
+  - replace
   - 'notify:sass'
   - 'newer:uglify'
   - 'newer:copy'

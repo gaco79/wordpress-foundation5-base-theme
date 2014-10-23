@@ -4,7 +4,7 @@ module.exports = {
 	},
 	sass : {
 		files : 'src/scss/**/*.scss',
-		tasks : [ 'sass', 'notify:sass' ]
+		tasks : [ 'sass', 'replace', 'notify:sass' ]
 	},
 	javascripts : {
 		files : 'src/javascripts/*.js',
