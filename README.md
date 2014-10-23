@@ -32,6 +32,8 @@ While you're working on your project, run:
 
 And you're set!
 
+If you wish to force regeneration of all files, even where no changes have occurred, use the `grunt buildall` task.
+
 ## Upgrades
 
 `bower update`: Should pull future Foundation 5 upgrades
@@ -40,14 +42,14 @@ And you're set!
 
 ## Directory Structure
 
- * TEMPLATE PARTS
-   * Template parts should be placed in the `/template-parts/` directory. Who'd have guessed?
-   * See here for more information: http://codex.wordpress.org/Function_Reference/get_template_part
- * SCSS
-   * `src/scss/_settings.scss`: Foundation configuration settings go in here
-   * `src/scss/style.scss`: Your theme specific styles go here
- * JAVASCRIPT
-   * `src/javascript/`: Is the place to drop your Javascripts. They'll be 'uglified' and the minimised versions dropped into the /js/ directory for you to reference in your theme.
+* TEMPLATE PARTS
+    * Template parts should be placed in the `/template-parts/` directory. Who'd have guessed?
+    * See here for more information: http://codex.wordpress.org/Function_Reference/get_template_part
+* SCSS
+    * `src/scss/_settings.scss`: Foundation configuration settings go in here
+    * `src/scss/style.scss`: Your theme specific styles go here
+* JAVASCRIPT
+    * `src/javascript/`: Is the place to drop your Javascripts. They'll be 'uglified' and the minimised versions dropped into the /js/ directory for you to reference in your theme.
 
 ## Theme Styling
 
@@ -60,6 +62,9 @@ To avoid conflicts between Wordpress' admin bar and Foundation's tooltips, the W
 I've tried to keep as many files as possible away from the main directory. For distribution, once you've built your theme using grunt, the whole of the `/src/`, `/bower_components/` and `/node_modules/` directories can be deleted, along with `Gruntfile.js`, `bower.json` and `package.json`.
 
 ## What's New
+* v0.3.2
+    * grunt-notify for system notifications when builds are complete
+    * style.css version number auto-generated from package.json info
 * v0.3.1
     * Updated and rebuilt with newer versions of Foundation.
     * Added support for load-grunt-config to keep grunt config files readable.

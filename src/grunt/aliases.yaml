@@ -5,6 +5,13 @@ build:
   - 'newer:uglify'
   - 'newer:copy'
   - 'notify:concat'
+buildall:
+  - 'sass'
+  - replace
+  - 'notify:sass'
+  - 'uglify'
+  - 'copy'
+  - 'notify:concat'
 default:
   - 'build'
   - 'watch'

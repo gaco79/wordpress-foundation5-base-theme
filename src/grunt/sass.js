@@ -7,10 +7,10 @@ module.exports = {
 			// Would be ideal, but currently strips "loud" comments and
 			// therefore the information
 			// required by the Wordpress Appearance admin page is misssing.
-			// outputStyle: 'compressed'
+			outputStyle: 'compressed'
 
 			// Will have to do for now...
-			outputStyle : 'compact'
+			//outputStyle : 'compact'
 		},
 		files : {
 			'style.css' : 'src/scss/style.scss',
