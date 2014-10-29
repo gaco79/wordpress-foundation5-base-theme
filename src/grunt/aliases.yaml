@@ -4,14 +4,14 @@ build:
   - 'notify:sass'
   - 'newer:uglify'
   - 'newer:copy'
-  - 'notify:concat'
+  - 'notify:js'
 buildall:
   - 'sass'
   - 'replace'
   - 'notify:sass'
   - 'uglify'
   - 'copy'
-  - 'notify:concat'
+  - 'notify:js'
 default:
   - 'build'
   - 'watch'

@@ -6,7 +6,7 @@ module.exports = {
 		}
 	},
 
-	concat : {
+	js : {
 		options : {
 			title : 'Javascripts Ready!',
 			message : 'Scripts uglified'

@@ -1,6 +1,6 @@
 module.exports = {
 	grunt : {
-		files : [ 'Gruntfile.js' ]
+		files : [ 'Gruntfile.js', 'src/grunt/*' ]
 	},
 	sass : {
 		files : 'src/scss/**/*.scss',
