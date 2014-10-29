@@ -7,4 +7,4 @@ module.exports = {
 		src : 'bower_components/modernizr/modernizr.js',
 		dest : 'js/modernizr.js',
 	}
-}
+};

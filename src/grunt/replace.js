@@ -14,4 +14,4 @@ module.exports = {
 			'editor-style.css' : 'editor-style.css'
 		}
 	}
-}
+};
