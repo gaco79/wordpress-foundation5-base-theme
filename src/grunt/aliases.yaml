@@ -5,6 +5,8 @@ build:
   - 'newer:uglify'
   - 'newer:copy'
   - 'notify:js'
+  - 'newer:compress'
+  - 'notify:dist'
 buildall:
   - 'sass'
   - 'replace'
@@ -12,6 +14,8 @@ buildall:
   - 'uglify'
   - 'copy'
   - 'notify:js'
+  - 'compress'
+  - 'notify:dist'
 default:
   - 'build'
   - 'watch'

@@ -65,9 +65,13 @@ To avoid conflicts between Wordpress' admin bar and Foundation's tooltips, the W
 
 ## Distributing your theme
 
-I've tried to keep as many files as possible away from the main directory. For distribution, once you've built your theme using grunt, the whole of the `/src/`, `/bower_components/` and `/node_modules/` directories can be deleted, along with `Gruntfile.js`, `bower.json` and `package.json`.
+As of v0.3.5, the grunt-contrib-compress task will generate a zip file of your theme and place it in the dist/ directory. This can be used to distribute your theme.
 
 ## What's New
+* v0.3.5
+    * Auto generate zip file for theme distribution
+* v0.3.4
+    * Implements javascript validation using grunt-contrib-jshint
 * v0.3.3
     * fixes for new libsass compiler and foundation imports.
 * v0.3.2

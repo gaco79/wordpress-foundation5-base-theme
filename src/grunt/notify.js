@@ -11,5 +11,12 @@ module.exports = {
 			title : 'Javascripts Ready!',
 			message : 'Scripts uglified'
 		}
+	},
+	
+	dist : {
+		options : {
+			title : 'Distribution Zip Ready!',
+			message : 'Theme zip file is ready for distribution'
+		}
 	}
 };
