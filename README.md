@@ -1,6 +1,6 @@
 # Wordpress Foundation 5 Base Theme
 
-This is a base theme to start your own Wordpress theme utilising the marvellousness of Zurb's Foundation 5. The files provided are the minimum necessary for s working Wordpress theme. 
+This is a base theme to start your own Wordpress theme utilising the marvellousness of Zurb's Foundation 5. The files provided are the minimum necessary for a working Wordpress theme. 
 
 The project makes use of Bower, Grunt and libsass. It should compile very quickly and be easy to maintain with upgrades in future.
 
@@ -42,14 +42,20 @@ If you wish to force regeneration of all files, even where no changes have occur
 
 ## Directory Structure
 
-* TEMPLATE PARTS
+* **Template Parts**
     * Template parts should be placed in the `/template-parts/` directory. Who'd have guessed?
-    * See here for more information: http://codex.wordpress.org/Function_Reference/get_template_part
-* SCSS
+    * See the [Wordpress get_template_part function](http://codex.wordpress.org/Function_Reference/get_template_part) for more information.
+* **SCSS**
     * `src/scss/_settings.scss`: Foundation configuration settings go in here
+    * `src/scss/_foundation.scss`: Include Foundation modules here for the main theme
+    * `src/scss/_foundation-editor.scss`: Include Foundation modules here for the visual editor theme
     * `src/scss/style.scss`: Your theme specific styles go here
-* JAVASCRIPT
-    * `src/javascript/`: Is the place to drop your Javascripts. They'll be 'uglified' and the minimised versions dropped into the /js/ directory for you to reference in your theme.
+* **Javascripts**
+    * `src/javascript/`: Is the place to drop your Javascripts.
+    * Javascripts are 'uglified' and the minimised versions dropped into the /js/ directory for you to reference in your theme.
+* **Grunt**
+    * Grunt config files are separated by task. See [load-grunt-config](https://github.com/firstandthird/load-grunt-config)
+    * Config files are placed in the `src/grunt/` directory
 
 ## Theme Styling
 
@@ -62,6 +68,8 @@ To avoid conflicts between Wordpress' admin bar and Foundation's tooltips, the W
 I've tried to keep as many files as possible away from the main directory. For distribution, once you've built your theme using grunt, the whole of the `/src/`, `/bower_components/` and `/node_modules/` directories can be deleted, along with `Gruntfile.js`, `bower.json` and `package.json`.
 
 ## What's New
+* v0.3.3
+    * fixes for new libsass compiler and foundation imports.
 * v0.3.2
     * grunt-notify for system notifications when builds are complete
     * style.css version number auto-generated from package.json info

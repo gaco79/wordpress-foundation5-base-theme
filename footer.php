@@ -14,7 +14,7 @@
 
   <div class="row">
     <div class="small-12 columns" id="theme-design">
-      Wordpress Foundation 5 Base Theme by Gareth Cooper &copy;2014
+      <a href="http://garethcooper.com/?p=1679" target="_blank">Wordpress Foundation 5 Base Theme by Gareth Cooper &copy;2014</a>
     </div>
   </div>
   

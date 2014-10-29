@@ -33,5 +33,13 @@ body {
   #theme-design {
     font-size: $small-font-size;
     text-align: right;
+    
+    a {
+    	color: inherit;
+    	
+    	&:hover {
+    		color: $anchor-font-color;
+    	}
+    }
   }
 }
