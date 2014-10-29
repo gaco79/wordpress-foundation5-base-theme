@@ -16,8 +16,8 @@
     "grunt-newer": "~0.8.0",
     "grunt-notify": "~0.3.1",
     "grunt-replace": "^0.8.0",
-    "grunt-sass": "~0.16.0",
-    "load-grunt-config": "~0.14.0",
+    "grunt-sass": "^0.16.0",
+    "load-grunt-config": "^0.14.0",
     "time-grunt": "~1.0.0"
   },
   "repository": {

@@ -10,11 +10,10 @@ License URI: license.txt
 Tags: 
 
 This theme, like WordPress, is licensed under the GPL.
-
-Built on: @@timestamp
 */
 
-@import "app";
+@import "settings";
+@import "foundation";
 @import "wordpress-alignment-captions";
 
 body {

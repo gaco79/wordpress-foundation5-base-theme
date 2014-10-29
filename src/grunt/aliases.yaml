@@ -1,13 +1,13 @@
 build:
   - 'newer:sass'
-  - replace
+  - 'replace'
   - 'notify:sass'
   - 'newer:uglify'
   - 'newer:copy'
   - 'notify:concat'
 buildall:
   - 'sass'
-  - replace
+  - 'replace'
   - 'notify:sass'
   - 'uglify'
   - 'copy'

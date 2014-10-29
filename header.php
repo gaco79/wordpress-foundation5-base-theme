@@ -44,7 +44,7 @@
       ?>
     </title>
 
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/modernizr.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/modernizr.js"></script>
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="stylesheet" type="text/css" media="all"
           href="<?php bloginfo('stylesheet_url'); ?>" />
@@ -57,7 +57,7 @@
   <body <?php body_class(); ?>>
 
     <div class="contain-to-grid fixed">
-      <nav class="top-bar" data-topbar data-options="mobile_show_parent_link: true">
+      <nav class="top-bar" data-topbar data-options="mobile_show_parent_link: true" role="navigation">
         <ul class="title-area">
           <!-- Title Area -->
           <li class="name">

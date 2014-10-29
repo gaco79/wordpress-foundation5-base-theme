@@ -2,10 +2,10 @@
  * Styling for the tinyMCE visual editor
  *
  * Version: @@version
- * Built on: @@timestamp
  */
 
-@import "app-editor";
+@import "settings";
+@import "foundation-editor";
 @import "wordpress-alignment-captions";
 
 img {

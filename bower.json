@@ -1,6 +1,6 @@
 {
   "name": "wordpress-foundation5-base-theme",
   "dependencies": {
-    "foundation": "zurb/bower-foundation"
+    "foundation": "zurb/bower-foundation#~5.4.0"
   }
 }
