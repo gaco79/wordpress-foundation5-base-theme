@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Wordpress Foundation 5 Base Theme : Initial theme for Wordpress using Foundation 5">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Wordpress Foundation 5 Base Theme</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/gaco79/wordpress-foundation5-base-theme">View on GitHub</a>
+
+          <h1 id="project_title">Wordpress Foundation 5 Base Theme</h1>
+          <h2 id="project_tagline">Initial theme for Wordpress using Foundation 5</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/gaco79/wordpress-foundation5-base-theme/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/gaco79/wordpress-foundation5-base-theme/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="wordpress-foundation-5-base-theme" class="anchor" href="#wordpress-foundation-5-base-theme"><span class="octicon octicon-link"></span></a>Wordpress Foundation 5 Base Theme</h1>
+
+<p>This is a base theme to start your own Wordpress theme utilising the marvellousness of Zurb's Foundation 5. The files provided are the minimum necessary for a working Wordpress theme. </p>
+
+<p>The project makes use of Bower, Grunt and libsass. It should compile very quickly and be easy to maintain with upgrades in future.</p>
+
+<h2>
+<a name="important-note" class="anchor" href="#important-note"><span class="octicon octicon-link"></span></a>Important Note</h2>
+
+<p>This project is now being coded to work with Wordpress version 4.0.</p>
+
+<p>Due to major upgrades to TinyMCE between WordPress 3.8 and 3.9, the [responsiveimage] shortcode will not work correctly with versions of WordPress earlier than 3.9.</p>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>You'll need to have the following items installed before continuing.</p>
+
+<ul>
+<li>
+<a href="http://nodejs.org">Node.js</a>: Use the installer provided on the NodeJS website.</li>
+<li>
+<a href="http://gruntjs.com/">Grunt</a>: Run <code>[sudo] npm install -g grunt-cli</code>
+</li>
+<li>
+<a href="http://bower.io">Bower</a>: Run <code>[sudo] npm install -g bower</code>
+</li>
+</ul>
+
+<h2>
+<a name="quickstart" class="anchor" href="#quickstart"><span class="octicon octicon-link"></span></a>Quickstart</h2>
+
+<div class="highlight highlight-bash"><pre>git clone git@github.com:gaco79/wordpress-foundation5-base-theme.git
+npm install
+bower install
+</pre></div>
+
+<p>While you're working on your project, run:</p>
+
+<p><code>grunt</code></p>
+
+<p>And you're set!</p>
+
+<p>If you wish to force regeneration of all files, even where no changes have occurred, use the <code>grunt buildall</code> task.</p>
+
+<h2>
+<a name="upgrades" class="anchor" href="#upgrades"><span class="octicon octicon-link"></span></a>Upgrades</h2>
+
+<p><code>bower update</code>: Should pull future Foundation 5 upgrades</p>
+
+<p><code>npm update</code>: Will keep your grunt tasks up to date.</p>
+
+<h2>
+<a name="directory-structure" class="anchor" href="#directory-structure"><span class="octicon octicon-link"></span></a>Directory Structure</h2>
+
+<ul>
+<li>
+<strong>Template Parts</strong>
+
+<ul>
+<li>Template parts should be placed in the <code>/template-parts/</code> directory. Who'd have guessed?</li>
+<li>See the <a href="http://codex.wordpress.org/Function_Reference/get_template_part">Wordpress get_template_part function</a> for more information.</li>
+</ul>
+</li>
+<li>
+<strong>SCSS</strong>
+
+<ul>
+<li>
+<code>src/scss/_settings.scss</code>: Foundation configuration settings go in here</li>
+<li>
+<code>src/scss/_foundation.scss</code>: Include Foundation modules here for the main theme</li>
+<li>
+<code>src/scss/_foundation-editor.scss</code>: Include Foundation modules here for the visual editor theme</li>
+<li>
+<code>src/scss/style.scss</code>: Your theme specific styles go here</li>
+</ul>
+</li>
+<li>
+<strong>Javascripts</strong>
+
+<ul>
+<li>
+<code>src/javascript/</code>: Is the place to drop your Javascripts.</li>
+<li>Javascripts are 'uglified' and the minimised versions dropped into the /js/ directory for you to reference in your theme.</li>
+</ul>
+</li>
+<li>
+<strong>Grunt</strong>
+
+<ul>
+<li>Grunt config files are separated by task. See <a href="https://github.com/firstandthird/load-grunt-config">load-grunt-config</a>
+</li>
+<li>Config files are placed in the <code>src/grunt/</code> directory</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a name="theme-styling" class="anchor" href="#theme-styling"><span class="octicon octicon-link"></span></a>Theme Styling</h2>
+
+<p>You must style Wordpress sticky posts using the .wordpress-sticky CSS class. This is to avoid conflict between the .sticky class which by default Wordpress uses to mark sticky posts, and which Foundation 5 also uses, but to make things stick to the top of the page instead of scrolling off.</p>
+
+<p>To avoid conflicts between Wordpress' admin bar and Foundation's tooltips, the Wordpress admin bar has been disabled in this theme. It's easy enough to shift the Foundation Top Bar down 32px when the Wordpress admin bar is showing, but then all tooltips appear 32px below where they should do too... If anyone has thoughts on fixing this, I'd be happy to hear!</p>
+
+<h2>
+<a name="distributing-your-theme" class="anchor" href="#distributing-your-theme"><span class="octicon octicon-link"></span></a>Distributing your theme</h2>
+
+<p>As of v0.3.5, the grunt-contrib-compress task will generate a zip file of your theme and place it in the dist/ directory. This can be used to distribute your theme.</p>
+
+<h2>
+<a name="whats-new" class="anchor" href="#whats-new"><span class="octicon octicon-link"></span></a>What's New</h2>
+
+<ul>
+<li>v0.3.5
+
+<ul>
+<li>Auto generate zip file for theme distribution</li>
+</ul>
+</li>
+<li>v0.3.4
+
+<ul>
+<li>Implements javascript validation using grunt-contrib-jshint</li>
+</ul>
+</li>
+<li>v0.3.3
+
+<ul>
+<li>fixes for new libsass compiler and foundation imports.</li>
+</ul>
+</li>
+<li>v0.3.2
+
+<ul>
+<li>grunt-notify for system notifications when builds are complete</li>
+<li>style.css version number auto-generated from package.json info</li>
+</ul>
+</li>
+<li>v0.3.1
+
+<ul>
+<li>Updated and rebuilt with newer versions of Foundation.</li>
+<li>Added support for load-grunt-config to keep grunt config files readable.</li>
+</ul>
+</li>
+<li>v0.3.0
+
+<ul>
+<li>Changes due to WordPress 3.9 upgrade of TinyMCE editor.</li>
+</ul>
+</li>
+<li>v0.2
+
+<ul>
+<li>Responsive images - Uses <a href="http://foundation.zurb.com/docs/components/interchange.html">Foundation Interchange</a>
+</li>
+<li>Support for standard Wordpress alignment and caption classes</li>
+</ul>
+</li>
+<li>v0.1
+
+<ul>
+<li>First working theme</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a name="more-information" class="anchor" href="#more-information"><span class="octicon octicon-link"></span></a>More Information</h2>
+
+<p>There's a full write-up of the theme at <a href="http://garethcooper.com/?p=1679">my website</a>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Wordpress Foundation 5 Base Theme maintained by <a href="https://github.com/gaco79">gaco79</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
