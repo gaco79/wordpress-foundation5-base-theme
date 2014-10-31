@@ -40,6 +40,10 @@ If you wish to force regeneration of all files, even where no changes have occur
 
 `npm update`: Will keep your grunt tasks up to date.
 
+### Upgrading Wordpress Installation
+
+If you've installed the theme into Wordpress and need to keep it updated, you can do this automatically using [afragen's GitHub Updater plugin](https://github.com/afragen/github-updater).
+
 ## Directory Structure
 
 * **Template Parts**
