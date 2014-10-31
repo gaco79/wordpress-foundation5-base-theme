@@ -179,3 +179,30 @@ function wf5bt_add_responsive_image_plugin_js($plugin_array) {
 }
 
 add_filter('mce_external_plugins', 'wf5bt_add_responsive_image_plugin_js');
+
+
+/**
+ * Add a widget to the dashboard.
+ *
+ * This function is hooked into the 'wp_dashboard_setup' action below.
+ */
+function example_add_dashboard_widgets() {
+
+	wp_add_dashboard_widget(
+	'wf5bt_dashboard_widget',         // Widget slug.
+	'Foundation 5 Base Theme',         // Title.
+	'wf5bt_dashboard_widget_function' // Display function.
+	);
+}
+add_action( 'wp_dashboard_setup', 'example_add_dashboard_widgets' );
+
+/**
+ * Create the function to output the contents of our Dashboard Widget.
+*/
+function wf5bt_dashboard_widget_function() {
+
+	// Display whatever it is you want to show.
+	echo "<p>You're running the Wordpress Foundation 5 Base Theme. ";
+	echo "If you find this theme useful, please consider making a small donation via PayPal.</p>";
+	echo "<p><a href='https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=U84T7QHDJH6FQ&lc=GB&item_name=Gareth%20Cooper&item_number=wf5bt&currency_code=GBP&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted' target='_blank' class='button'>Donate via PayPal</a></p>";
+}
