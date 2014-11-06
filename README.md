@@ -65,6 +65,12 @@ If you've installed the theme into Wordpress and need to keep it updated, you ca
 
 You must style Wordpress sticky posts using the .wordpress-sticky CSS class. This is to avoid conflict between the .sticky class which by default Wordpress uses to mark sticky posts, and which Foundation 5 also uses, but to make things stick to the top of the page instead of scrolling off.
 
+### Live Reload Support
+
+Live reload is supported via the grunt-contrib-watch task. Please [read this](https://github.com/gruntjs/grunt-contrib-watch/blob/master/docs/watch-examples.md#enabling-live-reload-in-your-html) for details on how to use this feature. I find the browser extension extremely excellent.
+
+## Wordpress Admin Bar
+
 To avoid conflicts between Wordpress' admin bar and Foundation's tooltips, the Wordpress admin bar has been disabled in this theme. It's easy enough to shift the Foundation Top Bar down 32px when the Wordpress admin bar is showing, but then all tooltips appear 32px below where they should do too... If anyone has thoughts on fixing this, I'd be happy to hear!
 
 ## Distributing your theme

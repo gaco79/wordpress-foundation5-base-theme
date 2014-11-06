@@ -1,4 +1,7 @@
 module.exports = {
+	options : {
+		livereload : true,
+	},
 	grunt : {
 		files : [ 'Gruntfile.js', 'src/grunt/*' ]
 	},
@@ -8,6 +11,6 @@ module.exports = {
 	},
 	javascripts : {
 		files : 'src/javascripts/*.js',
-		tasks : [ 'uglify', 'notify:concat']
+		tasks : [ 'uglify', 'notify:concat' ]
 	}
 };
