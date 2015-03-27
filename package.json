@@ -6,20 +6,21 @@
   "author": "Gareth Cooper",
   "licence": "GPL v3. Please see license.txt",
   "readmeFilename": "README.md",
+  "scripts": {
+    "start": "gulp"
+  },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-compress": "^0.12.0",
-    "grunt-contrib-concat": "~0.5.0",
-    "grunt-contrib-copy": "~0.7.0",
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-uglify": "~0.6.0",
-    "grunt-contrib-watch": "~0.6.0",
-    "grunt-newer": "~0.8.0",
-    "grunt-notify": "~0.3.1",
-    "grunt-replace": "^0.8.0",
-    "grunt-sass": "^0.16.0",
-    "load-grunt-config": "^0.14.0",
-    "time-grunt": "~1.0.0"
+    "gulp": "^3.8.10",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-concat": "^2.4.2",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-sass": "^1.3.3",
+    "gulp-uglify": "^1.0.2",
+    "gulp-util": "^3.0.1",
+    "gulp-webserver": "^0.9.0",
+    "rimraf": "^2.2.8",
+    "run-sequence": "^1.0.2",
+    "through2": "^0.6.3"
   },
   "repository": {
     "type": "git",

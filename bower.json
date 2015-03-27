@@ -1,5 +1,18 @@
 {
   "name": "wordpress-foundation5-base-theme",
+  "keywords": [
+    "wordpress",
+    "web",
+    "theme"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
     "foundation": "zurb/bower-foundation#~5.4.0"
   }

@@ -1,6 +1,5 @@
 *.DS_Store
 /bower_components/*
 /node_modules/*
-/node_modules/
-/bower_components/
 /dist/
+build/
