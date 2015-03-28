@@ -3,7 +3,7 @@
  * The Header for our theme.
  *
  * Displays all of the <head> section and Top-Bar 'Primary' menu
- * 
+ *
  */
 ?>
 <!DOCTYPE html>
@@ -44,7 +44,6 @@
       ?>
     </title>
 
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/modernizr.js"></script>
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="stylesheet" type="text/css" media="all"
           href="<?php bloginfo('stylesheet_url'); ?>" />
@@ -52,6 +51,7 @@
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
     <?php wp_head(); ?>
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/vendor.js"></script>
   </head>
 
   <body <?php body_class(); ?>>
@@ -83,7 +83,7 @@
                     <li><?php edit_post_link('Edit ' . get_post_type()); ?></li>
                   <?php endif; ?>
 
-                  <?php if (current_user_can('publish_posts')) : ?> 
+                  <?php if (current_user_can('publish_posts')) : ?>
                     <li><a href="<?php echo site_url(); ?>/wp-admin/post-new.php">
                         Add New Post
                       </a></li>
@@ -114,7 +114,7 @@
           ?>
           <?php wp_nav_menu($options); ?>
 
-          <ul class="right">            
+          <ul class="right">
             <li class="divider"></li>
             <li class="has-form">
               <form role="search" method="get" id="searchform"

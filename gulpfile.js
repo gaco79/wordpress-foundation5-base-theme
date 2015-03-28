@@ -15,7 +15,8 @@ var gulp     = require('gulp'),
 
 // Output directory for this build. Can be output to anywhere in the file
 //  system i.e. Wordpress themes directory
-var buildDir = './build';
+//var buildDir = './build';
+var buildDir = '/var/www/garethcooper.com/wp-content/themes/wp-base-theme';
 
 var paths = {
   assets: [
@@ -65,7 +66,7 @@ gulp.task('sass', function() {
     .pipe($.autoprefixer({
       browsers: ['last 2 versions', 'ie 10']
     }))
-    .pipe(gulp.dest(buildDir + '/css/'));
+    .pipe(gulp.dest(buildDir));
 });
 
 // Compiles and copies the Foundation for Apps JavaScript, as well as your app's custom JS
@@ -76,7 +77,7 @@ gulp.task('uglify', function(cb) {
       .on('error', function (e) {
         console.log(e);
       }))
-    .pipe($.concat('foundation.js'))
+    .pipe($.concat('vendor.js'))
     .pipe(gulp.dest(buildDir + '/js/'))
   ;
 
@@ -104,17 +105,15 @@ gulp.task('build', function(cb) {
 // Default task: builds your app, starts a server, and recompiles assets when they change
 gulp.task('default', function () {
   // Run the server after the build
-  sequence('build', 'server');
+  sequence('build');
 
   // Watch Sass
-  gulp.watch(['./client/assets/scss/**/*', './scss/**/*'], ['sass']);
+  gulp.watch(['./client/scss/**/*'], ['sass']);
 
   // Watch JavaScript
-  gulp.watch(['./client/assets/js/**/*', './js/**/*'], ['uglify']);
+  gulp.watch(['./client/js/**/*'], ['uglify']);
 
   // Watch static files
-  gulp.watch(['./client/**/*.*', '!./client/templates/**/*.*', '!./client/assets/{scss,js}/**/*.*'], ['copy']);
+  gulp.watch(paths.assets, ['copy']);
 
-  // Watch app templates
-  gulp.watch(['./client/templates/**/*.html'], ['copy:templates']);
 });
