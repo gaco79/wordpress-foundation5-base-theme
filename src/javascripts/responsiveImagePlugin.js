@@ -1,12 +1,12 @@
 /**
  * Responsive image tinymce plugin.
- * 
+ *
  * Lots of stuff borrowed from Wordpress's own Gallery plugin
- * 
+ *
  * Replaces [responsiveimage ... ] shortcodes with full-sized image in tinymce visual editor
  */
 tinymce.PluginManager.add('responsiveImagePlugin', function(editor, url) {
-    
+
     /**
      * Fired when content is added to the tinymce editor
      */
@@ -24,7 +24,7 @@ tinymce.PluginManager.add('responsiveImagePlugin', function(editor, url) {
 
     /**
      * Replace [responsiveimage ... ] shortcodes with the placeholder image in the tinymce visual editor
-     * 
+     *
      * @param {type} content The content of the tinymce editor
      * @returns String The new content for the tinymceeditor
      */
@@ -54,7 +54,7 @@ tinymce.PluginManager.add('responsiveImagePlugin', function(editor, url) {
     /**
      * Get the value of an attribute given an html-style string of attributes
      * e.g. attr1="value" attr2="value2"
-     * 
+     *
      * @param {type} s
      * @param {type} n
      * @returns {String}

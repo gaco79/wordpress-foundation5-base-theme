@@ -6,10 +6,10 @@
 // - - - - - - - - - - - - - - -
 
 var gulp     = require('gulp'),
-    $        = require('gulp-load-plugins')(),
-    rimraf   = require('rimraf'),
-    sequence = require('run-sequence'),
-    package  = require('./package.json');
+$        = require('gulp-load-plugins')(),
+rimraf   = require('rimraf'),
+sequence = require('run-sequence'),
+package  = require('./package.json');
 
 // 2. FILE PATHS
 // - - - - - - - - - - - - - - -
@@ -52,45 +52,52 @@ gulp.task('copy', function() {
   return gulp.src(paths.assets, {
     base: './src/'
   })
-    .pipe(gulp.dest(buildDir))
+  .pipe(gulp.dest(buildDir))
   ;
 });
 
 // Compile SASS
 gulp.task('sass', function() {
   return gulp.src('./src/scss/style.scss')
-    .pipe($.sass({
-      includePaths: paths.sass,
-      style: 'nested',
-      errLogToConsole: true
-    }))
-    .pipe($.replace('@@version', package.version))
-    .pipe($.autoprefixer({
-      browsers: ['last 2 versions', 'ie 10']
-    }))
-    .pipe(gulp.dest(buildDir));
+  .pipe($.sass({
+    includePaths: paths.sass,
+    style: 'nested',
+    errLogToConsole: true
+  }))
+  .pipe($.replace('@@version', package.version))
+  .pipe($.autoprefixer({
+    browsers: ['last 2 versions', 'ie 10']
+  }))
+  .pipe(gulp.dest(buildDir));
+});
+
+gulp.task('lint', function() {
+  return gulp.src('./src/javascripts/*.js')
+  .pipe($.jshint())
+  .pipe($.jshint.reporter('jshint-stylish'));
 });
 
 // Compiles and copies the Foundation for Apps JavaScript, as well as your app's custom JS
-gulp.task('uglify', function(cb) {
+gulp.task('uglify', ['lint'], function(cb) {
   // Foundation JavaScript
   gulp.src(paths.vendorJS)
-    .pipe($.uglify()
-      .on('error', function (e) {
-        console.log(e);
-      }))
-    .pipe($.concat('vendor.js'))
-    .pipe(gulp.dest(buildDir + '/js/'))
+  //.pipe($.plumber())
+  .pipe($.uglify())
+  .pipe($.concat('vendor.js'))
+  .pipe(gulp.dest(buildDir + '/js/'))
   ;
 
   // App JavaScript
   gulp.src(paths.appJS)
-    .pipe($.uglify()
-      .on('error', function(e) {
-        console.log(e);
-      }))
-    .pipe($.concat('app.js'))
-    .pipe(gulp.dest(buildDir + '/js/'))
+  .pipe($.plumber({ //hide errors as lint will deal with them in a much more friendly way
+    errorHandler: function (err) {
+      //console.log(err);
+      this.emit('end');
+    }
+  }))
+  .pipe($.uglify())
+  .pipe($.concat('app.js'))
+  .pipe(gulp.dest(buildDir + '/js/'))
   ;
 
   cb();
@@ -110,10 +117,10 @@ gulp.task('default', function () {
   sequence('build');
 
   // Watch Sass
-  gulp.watch(['./client/scss/**/*'], ['sass']);
+  gulp.watch(['./src/scss/**/*'], ['sass']);
 
   // Watch JavaScript
-  gulp.watch(['./client/js/**/*'], ['uglify']);
+  gulp.watch(['./src/javascripts/**/*'], ['uglify']);
 
   // Watch static files
   gulp.watch(paths.assets, ['copy']);
