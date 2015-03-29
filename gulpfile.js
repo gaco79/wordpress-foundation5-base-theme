@@ -8,7 +8,8 @@
 var gulp     = require('gulp'),
     $        = require('gulp-load-plugins')(),
     rimraf   = require('rimraf'),
-    sequence = require('run-sequence');
+    sequence = require('run-sequence'),
+    package  = require('./package.json');
 
 // 2. FILE PATHS
 // - - - - - - - - - - - - - - -
@@ -63,6 +64,7 @@ gulp.task('sass', function() {
       style: 'nested',
       errLogToConsole: true
     }))
+    .pipe($.replace('@@version', package.version))
     .pipe($.autoprefixer({
       browsers: ['last 2 versions', 'ie 10']
     }))
