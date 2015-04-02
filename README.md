@@ -1,12 +1,12 @@
 # Wordpress Foundation 5 Base Theme
 
-This is a base theme to start your own Wordpress theme utilising the marvellousness of Zurb's Foundation 5. The files provided are the minimum necessary for a working Wordpress theme. 
+This is a base theme to start your own Wordpress theme utilising the marvellousness of Zurb's Foundation 5. The files provided are the minimum necessary for a working Wordpress theme.
 
 The project makes use of Bower, Grunt and libsass. It should compile very quickly and be easy to maintain with upgrades in future.
 
 ## Important Note
 
-This project is now being coded to work with Wordpress version 4.0.
+This project is now being coded to work with Wordpress version 4.0+.
 
 Due to major upgrades to TinyMCE between WordPress 3.8 and 3.9, the [responsiveimage] shortcode will not work correctly with versions of WordPress earlier than 3.9.
 
@@ -28,7 +28,9 @@ bower install
 
 While you're working on your project, run:
 
-`grunt`
+```bash
+grunt
+```
 
 And you're set!
 
