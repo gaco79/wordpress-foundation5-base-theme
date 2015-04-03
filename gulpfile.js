@@ -9,15 +9,14 @@ var gulp     = require('gulp'),
 $        = require('gulp-load-plugins')(),
 rimraf   = require('rimraf'),
 sequence = require('run-sequence'),
-package  = require('./package.json');
+package  = require('./package.json'),
+local    = require('./package.local.json');
 
 // 2. FILE PATHS
 // - - - - - - - - - - - - - - -
 
 // Output directory for this build. Can be output to anywhere in the file
 //  system i.e. Wordpress themes directory
-//var buildDir = './build';
-var buildDir = '/var/www/garethcooper.com/wp-content/themes/wp-base-theme';
 
 var paths = {
   assets: [
@@ -44,7 +43,7 @@ var paths = {
 
 // Cleans the build directory
 gulp.task('clean', function(cb) {
-  rimraf(buildDir, cb);
+  rimraf(local.buildDir, cb);
 });
 
 // Copies everything in the client folder except templates, Sass, and JS
@@ -52,7 +51,7 @@ gulp.task('copy', function() {
   return gulp.src(paths.assets, {
     base: './src/'
   })
-  .pipe(gulp.dest(buildDir))
+  .pipe(gulp.dest(local.buildDir))
   ;
 });
 
@@ -68,7 +67,7 @@ gulp.task('sass', function() {
   .pipe($.autoprefixer({
     browsers: ['last 2 versions', 'ie 10']
   }))
-  .pipe(gulp.dest(buildDir));
+  .pipe(gulp.dest(local.buildDir));
 });
 
 gulp.task('lint', function() {
@@ -77,17 +76,19 @@ gulp.task('lint', function() {
   .pipe($.jshint.reporter('jshint-stylish'));
 });
 
-// Compiles and copies the Foundation for Apps JavaScript, as well as your app's custom JS
+// Compiles and copies the Foundation & Modernizr JavaScripts
+// Keep this small as these will be loaded in the head of your HTML document
 gulp.task('uglify', ['lint'], function(cb) {
   // Foundation JavaScript
   gulp.src(paths.vendorJS)
-  //.pipe($.plumber())
   .pipe($.uglify())
   .pipe($.concat('vendor.js'))
-  .pipe(gulp.dest(buildDir + '/js/'))
+  .pipe(gulp.dest(local.buildDir + '/js/'))
   ;
 
-  // App JavaScript
+  // Your JavaScript
+  // This will be loaded just below the end of the HTML document, so size
+  // is less of an issue
   gulp.src(paths.appJS)
   .pipe($.plumber({ //hide errors as lint will deal with them in a much more friendly way
     errorHandler: function (err) {
@@ -97,13 +98,13 @@ gulp.task('uglify', ['lint'], function(cb) {
   }))
   .pipe($.uglify())
   .pipe($.concat('app.js'))
-  .pipe(gulp.dest(buildDir + '/js/'))
+  .pipe(gulp.dest(local.buildDir + '/js/'))
   ;
 
   cb();
 });
 
-// Builds your entire app once, without starting a server
+// Builds your entire app once
 gulp.task('build', function(cb) {
   sequence('clean', ['copy', 'sass', 'uglify'], function() {
     console.log("Successfully built.");
@@ -111,9 +112,9 @@ gulp.task('build', function(cb) {
   });
 });
 
-// Default task: builds your app, starts a server, and recompiles assets when they change
+// Default task: builds your app, and recompiles assets when they change
 gulp.task('default', function () {
-  // Run the server after the build
+  // Build
   sequence('build');
 
   // Watch Sass

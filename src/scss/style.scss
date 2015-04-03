@@ -7,7 +7,7 @@ Description: A base theme using Foundation 5
 Version: @@version
 License: GNU General Public License v3
 License URI: license.txt
-Tags: 
+Tags:
 GitHub Theme URI: gaco79/wordpress-foundation5-base-theme
 
 This theme, like WordPress, is licensed under the GPL.
@@ -28,16 +28,17 @@ body {
 
 #footer {
   color: $topbar-dropdown-label-color;
-  background-color: $topbar-bg-color;
+  //background-color: $topbar-bg-color;
+  background-color: blue;
   padding: 2rem 0;
-  
+
   #theme-design {
     font-size: $small-font-size;
     text-align: right;
-    
+
     a {
     	color: inherit;
-    	
+
     	&:hover {
     		color: $anchor-font-color;
     	}

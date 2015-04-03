@@ -2,11 +2,12 @@
 
 This is a base theme to start your own Wordpress theme utilising the marvellousness of Zurb's Foundation 5. The files provided are the minimum necessary for a working Wordpress theme.
 
-The project makes use of Bower, Grunt and libsass. It should compile very quickly and be easy to maintain with upgrades in future.
+The project makes use of Bower, Gulp and libsass. It should compile very quickly and be easy to maintain with upgrades in future.
 
-## Important Note
+## Important Notes
 
-This project is now being coded to work with Wordpress version 4.0+.
+This branch of the project is being developed to use Gulp instead of Grunt as the build system.
+This will probably be implemented in the master branch as of v0.4.0.
 
 Due to major upgrades to TinyMCE between WordPress 3.8 and 3.9, the [responsiveimage] shortcode will not work correctly with versions of WordPress earlier than 3.9.
 
@@ -15,7 +16,7 @@ Due to major upgrades to TinyMCE between WordPress 3.8 and 3.9, the [responsivei
 You'll need to have the following items installed before continuing.
 
   * [Node.js](http://nodejs.org): Use the installer provided on the NodeJS website.
-  * [Grunt](http://gruntjs.com/): Run `[sudo] npm install -g grunt-cli`
+  * [Gulp](http://http://gulpjs.com/): Run `[sudo] npm install -g gulp`
   * [Bower](http://bower.io): Run `[sudo] npm install -g bower`
 
 ## Quickstart
@@ -25,43 +26,40 @@ git clone git@github.com:gaco79/wordpress-foundation5-base-theme.git
 npm install
 bower install
 ```
+You need to configure the build directory for your theme. It's set by default to
+`./build`, so your theme will build within the project directory. It's probably better
+if you change this to build to your Wordpress theme directory so that you can preview
+your changes live.
 
 While you're working on your project, run:
 
 ```bash
-grunt
+gulp
 ```
 
 And you're set!
-
-If you wish to force regeneration of all files, even where no changes have occurred, use the `grunt buildall` task.
 
 ## Upgrades
 
 `bower update`: Should pull future Foundation 5 upgrades
 
-`npm update`: Will keep your grunt tasks up to date.
-
-### Upgrading Wordpress Installation
-
-If you've installed the theme into Wordpress and need to keep it updated, you can do this automatically using [afragen's GitHub Updater plugin](https://github.com/afragen/github-updater).
+`npm update`: Will keep your gulp tasks up to date.
 
 ## Directory Structure
+
+All of the following directories are found within the `src/` directory of the project.
 
 * **Template Parts**
     * Template parts should be placed in the `/template-parts/` directory. Who'd have guessed?
     * See the [Wordpress get_template_part function](http://codex.wordpress.org/Function_Reference/get_template_part) for more information.
 * **SCSS**
-    * `src/scss/_settings.scss`: Foundation configuration settings go in here
-    * `src/scss/_foundation.scss`: Include Foundation modules here for the main theme
-    * `src/scss/_foundation-editor.scss`: Include Foundation modules here for the visual editor theme
-    * `src/scss/style.scss`: Your theme specific styles go here
+    * `scss/_settings.scss`: Foundation configuration settings go in here
+    * `scss/_foundation.scss`: Include Foundation modules here for the main theme
+    * `scss/_foundation-editor.scss`: Include Foundation modules here for the visual editor theme
+    * `scss/style.scss`: Your theme specific styles go here
 * **Javascripts**
-    * `src/javascript/`: Is the place to drop your Javascripts.
+    * `javascript/`: Is the place to drop your Javascripts.
     * Javascripts are 'uglified' and the minimised versions dropped into the /js/ directory for you to reference in your theme.
-* **Grunt**
-    * Grunt config files are separated by task. See [load-grunt-config](https://github.com/firstandthird/load-grunt-config)
-    * Config files are placed in the `src/grunt/` directory
 
 ## Theme Styling
 
@@ -69,7 +67,7 @@ You must style Wordpress sticky posts using the .wordpress-sticky CSS class. Thi
 
 ### Live Reload Support
 
-Live reload is supported via the grunt-contrib-watch task. Please [read this](https://github.com/gruntjs/grunt-contrib-watch/blob/master/docs/watch-examples.md#enabling-live-reload-in-your-html) for details on how to use this feature. I find the browser extension extremely excellent.
+Live reload is supported. Please [read this](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-) for details of installing the appropriate browser extension.
 
 ## Wordpress Admin Bar
 
