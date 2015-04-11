@@ -10,6 +10,7 @@ $        = require('gulp-load-plugins')(),
 rimraf   = require('rimraf'),
 sequence = require('run-sequence'),
 package  = require('./package.json'),
+//please copy the package.local.dist.json file to package.local.json and update its settings
 local    = require('./package.local.json');
 
 // 2. FILE PATHS
