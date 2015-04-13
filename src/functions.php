@@ -107,7 +107,7 @@ add_filter('post_class', 'remove_sticky_class');
 
 
 /*
- * Add Foundation javascript.
+ * Add Foundation and custom theme javascript.
  *
  * @see http://foundation.zurb.com/
  */
@@ -182,6 +182,9 @@ function wf5bt_add_responsive_image_plugin_js($plugin_array) {
 }
 
 add_filter('mce_external_plugins', 'wf5bt_add_responsive_image_plugin_js');
+
+// Change JPEG image compression from default 90%
+add_filter( 'jpeg_quality', create_function( '', 'return 95;' ) );
 
 
 /**
