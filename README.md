@@ -6,7 +6,7 @@ The project makes use of Bower and Gulp. It should compile very quickly, using l
 
 ## Important Notes
 
-The `dev` branch of the project is being developed to use Gulp instead of Grunt as the build system. This will probably be implemented in the master branch as of v0.4.0.
+As of v0.4.0 project now is being developed to use Gulp instead of Grunt as the build system. This breaks compatibility with older versions of this project.
 
 Due to major upgrades to TinyMCE between WordPress 3.8 and 3.9, the [responsiveimage] shortcode will not work correctly with versions of WordPress earlier than 3.9.
 
@@ -82,6 +82,8 @@ To avoid conflicts between Wordpress' admin bar and Foundation's tooltips, the W
 ~~As of v0.3.5, the grunt-contrib-compress task will generate a zip file of your theme and place it in the dist/ directory. This can be used to distribute your theme.~~
 
 ## What's New
+* v0.4.0
+ * Use Gulp instead of Grunt to build the theme.
 * v0.3.5
     * Auto generate zip file for theme distribution
 * v0.3.4
