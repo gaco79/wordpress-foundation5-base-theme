@@ -57,8 +57,13 @@ All of the following directories are found within the `src/` directory of the pr
     * `scss/_foundation-editor.scss`: Include Foundation modules here for the visual editor theme
     * `scss/style.scss`: Your theme specific styles go here
 * **Javascripts**
-    * `javascript/`: Is the place to drop your Javascripts.
-    * Javascripts are 'uglified' and the minimised versions dropped into the /js/ directory for you to reference in your theme.
+    * `javascripts/`: Is the place to drop Javascripts that should be available on every page of your theme.
+     * These will be uglified and output to the js/app.js file which is already loaded for you to use.
+     * Scripts that are useful on a large number of your pages should be placed here.
+     * This script is loaded just before the &lt;/body&gt; tag of your HTML.
+     * With browser caching enabled (beyond the scope of this readme) this script shouldn't affect the load-times of your pages too much, but a large app.js file will have an impact on the initial page load time.
+    * Javascripts places in the javascripts/plugins/ directory will be kept as individual files for you to load as and when your theme requires.
+     * These are scripts that are only required on a small subset of your theme pages, e.g. tinyMCE plugins that are only necessary in the new post admin panel.
 
 ## Theme Styling
 
@@ -74,7 +79,7 @@ To avoid conflicts between Wordpress' admin bar and Foundation's tooltips, the W
 
 ## Distributing your theme
 
-As of v0.3.5, the grunt-contrib-compress task will generate a zip file of your theme and place it in the dist/ directory. This can be used to distribute your theme.
+~~As of v0.3.5, the grunt-contrib-compress task will generate a zip file of your theme and place it in the dist/ directory. This can be used to distribute your theme.~~
 
 ## What's New
 * v0.3.5
