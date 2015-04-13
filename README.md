@@ -103,7 +103,3 @@ To avoid conflicts between Wordpress' admin bar and Foundation's tooltips, the W
     * Support for standard Wordpress alignment and caption classes
 * v0.1
     * First working theme
-
-## More Information
-
-There's a full write-up of the theme at [my website](http://garethcooper.com/?p=1679).
