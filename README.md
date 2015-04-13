@@ -1,13 +1,12 @@
 # Wordpress Foundation 5 Base Theme
 
-This is a base theme to start your own Wordpress theme utilising the marvellousness of Zurb's Foundation 5. The files provided are the minimum necessary for a working Wordpress theme.
+This is a base theme to start your own [Wordpress](http://wordpress.org) theme utilising the marvellousness of [Zurb's Foundation 5](http://foundation.zurb.com/). The files provided are the minimum necessary for a working Wordpress theme.
 
-The project makes use of Bower, Gulp and libsass. It should compile very quickly and be easy to maintain with upgrades in future.
+The project makes use of Bower and Gulp. It should compile very quickly, using libsass for SCSS, and be easy to maintain with upgrades in future.
 
 ## Important Notes
 
-This branch of the project is being developed to use Gulp instead of Grunt as the build system.
-This will probably be implemented in the master branch as of v0.4.0.
+The `dev` branch of the project is being developed to use Gulp instead of Grunt as the build system. This will probably be implemented in the master branch as of v0.4.0.
 
 Due to major upgrades to TinyMCE between WordPress 3.8 and 3.9, the [responsiveimage] shortcode will not work correctly with versions of WordPress earlier than 3.9.
 
@@ -29,7 +28,7 @@ bower install
 You need to configure the build directory for your theme. It's set by default to
 `./build`, so your theme will build within the project directory. It's probably better
 if you change this to build to your Wordpress theme directory so that you can preview
-your changes live.
+your changes live. Copy `package.local.dist.json` to `package.local.json` and modify the `buildDir` value there to a valid location in your filesystem. The directory will be regularly deleted and re-created, so make sure you have read-write permissions to the parent directory.
 
 While you're working on your project, run:
 
@@ -63,7 +62,7 @@ All of the following directories are found within the `src/` directory of the pr
 
 ## Theme Styling
 
-You must style Wordpress sticky posts using the .wordpress-sticky CSS class. This is to avoid conflict between the .sticky class which by default Wordpress uses to mark sticky posts, and which Foundation 5 also uses, but to make things stick to the top of the page instead of scrolling off.
+You must style Wordpress sticky posts using the `.wordpress-sticky` CSS class. This is to avoid conflict between the `.sticky` class which by default Wordpress uses to mark sticky posts, and which Foundation 5 also uses, but to make things stick to the top of the page instead of scrolling off.
 
 ### Live Reload Support
 

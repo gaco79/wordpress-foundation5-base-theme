@@ -60,6 +60,7 @@ gulp.task('copy', function() {
     base: './src/'
   })
   .pipe(gulp.dest(local.buildDir))
+  .pipe($.livereload())
   ;
 });
 
@@ -75,7 +76,8 @@ gulp.task('sass', function() {
   .pipe($.autoprefixer({
     browsers: ['last 2 versions', 'ie 10']
   }))
-  .pipe(gulp.dest(local.buildDir));
+  .pipe(gulp.dest(local.buildDir))
+  .pipe($.livereload());
 });
 
 gulp.task('lint', function() {
@@ -119,6 +121,7 @@ gulp.task('uglify', ['lint'], function(cb) {
   }))
   .pipe($.uglify())
   .pipe(gulp.dest(local.buildDir + '/js/plugins/'))
+  .pipe($.livereload());
   ;
 
   cb();
@@ -134,6 +137,8 @@ gulp.task('build', function(cb) {
 
 // Default task: builds your app, and recompiles assets when they change
 gulp.task('default', function () {
+  $.livereload.listen();
+
   // Build
   sequence('build');
 
