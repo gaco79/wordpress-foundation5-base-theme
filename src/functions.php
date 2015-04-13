@@ -67,12 +67,12 @@ if (!function_exists('gc_basetheme_setup')):
 
         /**
          * Custom image sizes
-         * 
+         *
          * These should be named to match Foundations media queries as they will be automatically used in
          *  Interchange for responsive images
-         * 
+         *
          * @see http://foundation.zurb.com/docs/components/interchange.html
-         * 
+         *
          */
         add_image_size('small', 640, 9999);
         add_image_size('medium', 1020, 9999);
@@ -91,7 +91,7 @@ add_action('after_setup_theme', 'gc_basetheme_setup');
 
 /**
  * Replace the wordpress .sticky class with .wordpress-sticky
- * 
+ *
  * .sticky conflicts with Foundation 5 Top Bar
  */
 if (!function_exists('remove_sticky_class')) :
@@ -112,21 +112,24 @@ add_filter('post_class', 'remove_sticky_class');
  * @see http://foundation.zurb.com/
  */
 if (!function_exists('wf5bt_basetheme_enqueue_scripts')) :
-
     function wf5bt_basetheme_enqueue_scripts() {
-        //Foundation Bootstrap
+      //App JS for inclusion just before </body> tag
         wp_enqueue_script(
-                'foundation', get_stylesheet_directory_uri() . '/js/foundation.min.js', array('jquery'), false, true
+                'appJs', get_stylesheet_directory_uri() . '/js/app.js', array('jquery'), false, true
+        );
+
+        // JS for inclusion in the head
+        wp_enqueue_script(
+                'headJs', get_stylesheet_directory_uri() . '/js/head.js', array('jquery')
         );
     }
-
 endif;
 
 add_action('wp_enqueue_scripts', 'wf5bt_basetheme_enqueue_scripts');
 
 /**
  * Add Foundation menu markup to wordpress generated menus
- * 
+ *
  * Add Dropdown class to Wordpress submenus
  */
 class GC_walker_nav_menu extends Walker_Nav_Menu {
@@ -145,7 +148,7 @@ if (!function_exists('wf5bt_menu_set_dropdown')) :
 
     /**
      * Add Foundation menu markup to wordpress generated menus
-     * 
+     *
      * Add has-dropdown class to parent menu items
      */
     function wf5bt_menu_set_dropdown($sorted_menu_items, $args) {
@@ -172,7 +175,7 @@ add_filter('wp_nav_menu_objects', 'wf5bt_menu_set_dropdown', 10, 2);
  */
 function wf5bt_add_responsive_image_plugin_js($plugin_array) {
     if (current_user_can('edit_posts') && current_user_can('edit_pages')) {
-        $plugin_array['responsiveImagePlugin'] = get_bloginfo('template_url') . '/js/responsiveImagePlugin.min.js';
+        $plugin_array['responsiveImagePlugin'] = get_bloginfo('template_url') . '/js/plugins/resplonsiveImagePlugin.js';
     }
 
     return $plugin_array;

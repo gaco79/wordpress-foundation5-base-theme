@@ -51,7 +51,6 @@
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
     <?php wp_head(); ?>
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/vendor.js"></script>
   </head>
 
   <body <?php body_class(); ?>>
@@ -77,9 +76,9 @@
 
           <?php if (is_user_logged_in()) : ?>
             <ul class="right show-for-large-up">
-              <li class="has-dropdown"><a href="#"><?php echo get_avatar(get_current_user_id(), '48'); ?></a>
+              <li class="has-dropdown"><a href="<?php echo get_edit_user_link(); ?>"><?php echo get_avatar(get_current_user_id(), '48'); ?></a>
                 <ul class="dropdown">
-                  <?php if (current_user_can('edit_post')) : ?>
+                  <?php if (is_single() && current_user_can('edit_post')) : ?>
                     <li><?php edit_post_link('Edit ' . get_post_type()); ?></li>
                   <?php endif; ?>
 
@@ -89,9 +88,6 @@
                       </a></li>
                   <?php endif; ?>
 
-                  <li><a href="<?php echo get_edit_user_link(); ?>">
-                      My Profile
-                    </a></li>
                   <li><a href="<?php echo admin_url(); ?>">
                       Site Admin
                     </a></li>
