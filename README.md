@@ -1,3 +1,5 @@
+[![devDependency Status](https://david-dm.org/gaco79/wordpress-foundation5-base-theme/dev-status.png?branch=master)](https://david-dm.org/gaco79/wordpress-foundation5-base-theme#info=devDependencies)
+
 # Wordpress Foundation 5 Base Theme
 
 This is a base theme to start your own [Wordpress](http://wordpress.org) theme utilising the marvellousness of [Zurb's Foundation 5](http://foundation.zurb.com/). The files provided are the minimum necessary for a working Wordpress theme.
