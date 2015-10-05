@@ -1,4 +1,4 @@
-[![devDependency Status](https://david-dm.org/gaco79/wordpress-foundation5-base-theme/dev-status.png?branch=master)](https://david-dm.org/gaco79/wordpress-foundation5-base-theme#info=devDependencies)
+[![devDependency Status](https://david-dm.org/gaco79/wordpress-foundation5-base-theme/master/dev-status.svg)](https://david-dm.org/gaco79/wordpress-foundation5-base-theme#info=devDependencies)
 
 # Wordpress Foundation 5 Base Theme
 
